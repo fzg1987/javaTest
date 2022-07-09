@@ -1,8 +1,35 @@
 package entity;
 
 public class User {
-    public Integer id;
-    public String name;
-    public String password;
-    public Integer age;
+    private Integer id;
+    private String name;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
+    @Override
+    public int hashCode() {
+        return this.id;
+    }
 }
