@@ -4,17 +4,10 @@ import static java.lang.Thread.sleep;
 
 public class Test {
     public static void main(String[] args) {
-        MyThread myThread = new MyThread();
-        myThread.start();
-        for (int i = 0; i < 100; i++) {
-            System.out.println("-----main------");
-            if(i == 5){
-                try {
-                    sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+        Account account = new Account();
+        Thread thread1 = new Thread(account,"线程A");
+        Thread thread2 = new Thread(account,"线程B");
+        thread1.start();
+        thread2.start();
     }
 }
