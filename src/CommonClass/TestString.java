@@ -1,10 +1,6 @@
-package test;
+package CommonClass;
 
-import java.util.Locale;
-
-import static java.lang.Thread.sleep;
-
-public class Test {
+public class TestString {
     public static void main(String[] args) {
         String str1 = "Java";
         String str2 = new String("Java");
