@@ -1,8 +1,12 @@
 package entity;
 
-public class User {
+import java.io.Serializable;
+import java.util.Objects;
+
+public class User implements Serializable {
     private Integer id;
     private String name;
+    private Integer age;
 
     public Integer getId() {
         return id;
@@ -20,16 +24,33 @@ public class User {
         this.name = name;
     }
 
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", age=" + age +
                 '}';
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(id, user.id) && Objects.equals(name, user.name) && Objects.equals(age, user.age);
+    }
+
+    @Override
     public int hashCode() {
-        return this.id;
+        return Objects.hash(id, name, age);
     }
 }
